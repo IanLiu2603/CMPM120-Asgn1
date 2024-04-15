@@ -19,13 +19,18 @@ class Location extends Scene {
                 this.engine.addChoice(choice["Text"],choice); // TODO: use the Text of the choice
                 // TODO: add a useful second argument to addChoice so that the current code of handleChoice below works
             }
-        } else {
+        } else { 
             this.engine.addChoice("The end.")
         }
     }
 
     handleChoice(choice) {
-        if(choice) {
+        //Handle locks
+        if(choice.Lock == "True"){
+            this.engine.show("&gt; "+choice.Text);
+            this.engine.show("Locked"); //Replace
+        }
+        else if(choice) {
             this.engine.show("&gt; "+choice.Text);
             this.engine.gotoScene(Location, choice.Target);
         } else {

@@ -1,57 +1,90 @@
 {
-    "Title": "Campus Life on the West Side",
-    "Credits": "Created by Adam Smith (amsmith@ucsc.edu).",
-    "InitialLocation": "Kresge",
+    "Title": "Rural Life",
+    "Credits": "Created by Ian Liu (ialiu@ucsc.edu).",
+    "InitialLocation": "Home",
     "Locations": {
-        "Kresge": {
-            "Body": "This is Kresge College, lots of nice trees.",
+        "Home": {
+            "Body": "This is your Home, it's nice but you have rice for dinner.",
             "Choices": [
                 {
-                    "Text": "South",
-                    "Target": "Porter"
+                    "Text": "Front Door",
+                    "Target": "Outside"
                 }
             ]
         },
-        "Porter": {
+        "Outside": {
             "Body": "This is Porter College, the trees are nice here too.",
             "Choices": [
                 {
-                    "Text": "North",
-                    "Target": "Kresge"
+                    "Text": "Road to Town",
+                    "Target": "Path"
                 },
                 {
-                    "Text": "South",
-                    "Target": "Rachel Carson"
+                    "Text": "Garden",
+                    "Target": "Garden"
+                },
+                {
+                    "Text": "Stable",
+                    "Target": "Stable"
                 }
             ]
         },
-        "Rachel Carson": {
+        "Garden": {
             "Body": "Rachel Carson College, more sun and fewer trees.",
             "Choices": [
                 {
-                    "Text": "North",
-                    "Target": "Porter"
+                    "Text": "Carrots",
+                    "Unlock": "asda"
                 },
                 {
-                    "Text": "South",
-                    "Target": "Oakes"
+                    "Text": "Leave",
+                    "Target": "Outside"
                 }
             ]
         },
-        "Oakes": {
+        "Stable": {
             "Body": "Oakes College, even the buildings have tree bark on them.",
             "Choices": [
                 {
-                    "Text": "North",
+                    "Text": "Horse",
                     "Target": "Rachel Carson"
                 },
                 {
-                    "Text": "South",
-                    "Target": "Beyond"
+                    "Text": "Leave",
+                    "Target": "Outside"
                 }
             ]
         },
-        "Beyond": {
+        "Path": {
+            "Body": "Oakes College, even the buildings have tree bark on them.",
+            "Choices": [
+                {
+                    "Lock": "True",
+                    "Text": "Continue",
+                    "Target": "Town"
+                },
+                {
+                    "Text": "Back Home",
+                    "Target": "Outside"
+                }
+            ]
+        },
+        "Town": {
+            "Body": "Oakes College, even the buildings have tree bark on them.",
+            "Choices": [
+                {
+                    "Text": "Buy Rice",
+                    "Unlock": "asda",
+                    "Target": "Rachel Carson"
+                },
+                {
+                    "Lock": "True",
+                    "Text": "Home",
+                    "Target": "Home2"
+                }
+            ]
+        },
+        "Home2": {
             "Body": "Grass, don't forget to check for ticks!"
         }
     }
