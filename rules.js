@@ -26,9 +26,27 @@ class Location extends Scene {
 
     handleChoice(choice) {
         //Handle locks
+        if(choice.Unlock){
+            console.log(choice.Unlock);
+            console.log(this.engine.storyData.Locations[choice.Unlock].Choices[0].Lock);
+            /*if (this.engine.storyData.Locations[choice.Unlock].Choices[0].Lock){
+                this.engine.storyData.Locations[choice.Unlock].Choices[0].Lock = "False";
+            }
+            else{
+                this.engine.storyData.Locations[choice.Unlock].Choices[1].Lock = "False";
+            }*/
+            for(let choose of this.engine.storyData.Locations[choice.Unlock].Choices){
+                if (choose.Lock){
+                    choose.Lock = "False"
+                }
+            }
+            
+            console.log(this.engine.storyData.Locations[choice.Unlock].Choices[0].Lock);
+        }
         if(choice.Lock == "True"){
             this.engine.show("&gt; "+choice.Text);
             this.engine.show("Locked"); //Replace
+            this.engine.gotoScene(Location, choice.Fraud);
         }
         else if(choice) {
             this.engine.show("&gt; "+choice.Text);

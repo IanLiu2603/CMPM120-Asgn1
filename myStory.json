@@ -13,11 +13,11 @@
             ]
         },
         "Outside": {
-            "Body": "This is Porter College, the trees are nice here too.",
+            "Body": "Outside of your house is a garden and a stable. Heading off into the distance is a path leading to the nearest town.",
             "Choices": [
                 {
                     "Text": "Road to Town",
-                    "Target": "Path"
+                    "Target": "Road"
                 },
                 {
                     "Text": "Garden",
@@ -30,11 +30,12 @@
             ]
         },
         "Garden": {
-            "Body": "Rachel Carson College, more sun and fewer trees.",
+            "Body": "Garden",
             "Choices": [
                 {
                     "Text": "Carrots",
-                    "Unlock": "asda"
+                    "Unlock": "Horse",
+                    "Target": "Outside"
                 },
                 {
                     "Text": "Leave",
@@ -43,11 +44,11 @@
             ]
         },
         "Stable": {
-            "Body": "Oakes College, even the buildings have tree bark on them.",
+            "Body": "Stable",
             "Choices": [
                 {
                     "Text": "Horse",
-                    "Target": "Rachel Carson"
+                    "Target": "Horse"
                 },
                 {
                     "Text": "Leave",
@@ -55,12 +56,47 @@
                 }
             ]
         },
-        "Path": {
-            "Body": "Oakes College, even the buildings have tree bark on them.",
+        "Horse": {
+            "Body": "Your horse is hungry",
+            "Choices": [
+                {
+                    "Lock": "True",
+                    "Text": "Feed",
+                    "Fraud": "FHorse",
+                    "Target": "OHorse"
+                },
+                {
+                    "Text": "Leave",
+                    "Target": "Outside"
+                }
+            ]
+        },
+        "OHorse": {
+            "Body": "The Horse neighs happily and now follows you",
+            "Choices": [
+                {
+                    "Text": "Leave",
+                    "Unlock": "Road",
+                    "Target": "Outside"
+                }
+            ]
+        },
+        "FHorse": {
+            "Body": "You don't have anything to feed your horse",
+            "Choices": [
+                {
+                    "Text": "Return",
+                    "Target": "Horse"
+                }
+            ]
+        },
+        "Road": {
+            "Body": "Road",
             "Choices": [
                 {
                     "Lock": "True",
                     "Text": "Continue",
+                    "Fraud":"FRoad",
                     "Target": "Town"
                 },
                 {
@@ -69,23 +105,47 @@
                 }
             ]
         },
-        "Town": {
-            "Body": "Oakes College, even the buildings have tree bark on them.",
+        "FRoad": {
+            "Body": "FRoad",
             "Choices": [
                 {
-                    "Text": "Buy Rice",
-                    "Unlock": "asda",
-                    "Target": "Rachel Carson"
+                    "Text": "Return",
+                    "Target": "Road"
+                }
+            ]
+        },
+        "Town": {
+            "Body": "Town",
+            "Choices": [
+                {
+                    "Text": "Market",
+                    "Unlock": "Town",
+                    "Target": "Market"
                 },
                 {
                     "Lock": "True",
-                    "Text": "Home",
+                    "Text": "Return Home",
+                    "Target": "Home2"
+                }
+            ]
+        },
+        "Market": {
+            "Body": "Market",
+            "Choices": [
+                {
+                    "Text": "Buy Rice",
+                    "Unlock": "Town",
+                    "Target": "Town"
+                },
+                {
+                    "Lock": "True",
+                    "Text": "Return Home",
                     "Target": "Home2"
                 }
             ]
         },
         "Home2": {
-            "Body": "Grass, don't forget to check for ticks!"
+            "Body": "Home2"
         }
     }
 }
