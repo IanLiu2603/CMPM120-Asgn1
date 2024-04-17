@@ -4,7 +4,7 @@
     "InitialLocation": "Home",
     "Locations": {
         "Home": {
-            "Body": "This is your Home, it's nice but you have rice for dinner.",
+            "Body": "This is your Home, it's nice but you have no rice left for dinner.",
             "Choices": [
                 {
                     "Text": "Front Door",
@@ -33,9 +33,16 @@
             "Body": "Garden",
             "Choices": [
                 {
+                    "Text": "Tomatoes",
+                    "Target": "Tomatoes"
+                },
+                {
+                    "Text": "Potatoes",
+                    "Target": "Potatoes"
+                },
+                {
                     "Text": "Carrots",
-                    "Unlock": "Horse",
-                    "Target": "Outside"
+                    "Target": "Carrots"
                 },
                 {
                     "Text": "Leave",
@@ -43,8 +50,48 @@
                 }
             ]
         },
+        "Carrots": {
+            "Body": "The carrots are ripe and ready for picking",
+            "Choices": [
+                {
+                    "Text": "Pick Carrots",
+                    "Unlock": "Horse",
+                    "Target": "Garden"
+                },
+                {
+                    "Text": "Leave",
+                    "Target": "Garden"
+                }
+            ]
+        },
+        "Potatoes": {
+            "Body": "There are a few potatoes lying around",
+            "Choices": [
+                {
+                    "Text": "Pick Potatoes",
+                    "Target": "Garden"
+                },
+                {
+                    "Text": "Leave",
+                    "Target": "Garden"
+                }
+            ]
+        },
+        "Tomatoes": {
+            "Body": "The tomatoes are ripe and ready for picking",
+            "Choices": [
+                {
+                    "Text": "Pick Tomatoes",
+                    "Target": "Garden"
+                },
+                {
+                    "Text": "Leave",
+                    "Target": "Garden"
+                }
+            ]
+        },
         "Stable": {
-            "Body": "Stable",
+            "Body": "There isn't much in the stable. Just an old horse sitting around.",
             "Choices": [
                 {
                     "Text": "Horse",
@@ -91,7 +138,7 @@
             ]
         },
         "Road": {
-            "Body": "Road",
+            "Body": "The path to town is long and steep",
             "Choices": [
                 {
                     "Lock": "True",
@@ -106,7 +153,7 @@
             ]
         },
         "FRoad": {
-            "Body": "FRoad",
+            "Body": "The road is too long and you won't be able to make it home in time to cook dinner if you walk.",
             "Choices": [
                 {
                     "Text": "Return",
@@ -115,37 +162,58 @@
             ]
         },
         "Town": {
-            "Body": "Town",
+            "Body": "There is a lot of things to do in town but today you are only here for rice",
             "Choices": [
                 {
                     "Text": "Market",
-                    "Unlock": "Town",
                     "Target": "Market"
                 },
                 {
                     "Lock": "True",
                     "Text": "Return Home",
+                    "Fraud": "FTown",
                     "Target": "Home2"
+                }
+            ]
+        },
+        "FTown": {
+            "Body": "As you are about to leave, you remember that you still need to buy rice.",
+            "Choices": [
+                {
+                    "Text": "Return",
+                    "Target": "Town"
                 }
             ]
         },
         "Market": {
-            "Body": "Market",
+            "Body": "The Market has many different vendors selling various goods",
+            "Choices": [
+                {
+                    "Text": "Rice Vendor",
+                    "Target": "Rice"
+                },
+                {
+                    "Text": "Return To Town",
+                    "Target": "Town"
+                }
+            ]
+        },
+        "Rice": {
+            "Body": "The Rice Vendor has bags of rice sitting around on his table",
             "Choices": [
                 {
                     "Text": "Buy Rice",
                     "Unlock": "Town",
-                    "Target": "Town"
+                    "Target": "Market"
                 },
                 {
-                    "Lock": "True",
-                    "Text": "Return Home",
-                    "Target": "Home2"
+                    "Text": "Return To Town",
+                    "Target": "Town"
                 }
             ]
         },
         "Home2": {
-            "Body": "Home2"
+            "Body": "You make it home on time to cook a nice dinner with your hard earned rice"
         }
     }
 }

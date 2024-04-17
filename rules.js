@@ -45,7 +45,6 @@ class Location extends Scene {
         }
         if(choice.Lock == "True"){
             this.engine.show("&gt; "+choice.Text);
-            this.engine.show("Locked"); //Replace
             this.engine.gotoScene(Location, choice.Fraud);
         }
         else if(choice) {
